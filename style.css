@@ -1,0 +1,200 @@
+/* -- CSS RESET -- */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* -- END CSS RESET -- */
+
+/* -- VARIABLES -- */
+:root {
+    /* - COLORS - */
+    --primary-fg-500: hsl(234, 12%, 34%);
+    --accent-fg-400: hsl(212, 6%, 44%);
+    --category-red: hsl(0, 78%, 62%);
+    --category-cyan: hsl(180, 62%, 55%);
+    --category-blue: hsl(212, 86%, 64%);
+    --category-orange: hsl(34, 97%, 64%);
+    /* - END COLORS - */
+    /* -- SPACING -- */
+    --spacing-500: 2.5rem;
+    --spacing-400: 2rem;
+    --spacing-300: 1.5rem;
+    --spacing-200: 1rem;
+    --spacing-100: 0.5rem;
+    /* -- END SPACING -- */
+}
+/* -- END VARIABLES -- */
+
+body {
+    font-family: "Poppins", sans-serif;
+    max-width: 90rem;
+    color: var(--primary-fg-500);
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1,h2 {
+    font-size: 1.5rem;
+    line-height: 140%;
+    letter-spacing: 0.25px;
+
+   @media(min-width: 48rem) {
+    font-size: 2.25rem;
+   }
+}
+h1 {
+    font-weight: 200;
+}
+h2 {
+    font-weight: 600;
+}
+p {
+    font-size: 0.8125rem;
+    line-height: 160%;
+    letter-spacing: 0px;
+}
+.article-title {
+    line-height: 135%;
+    letter-spacing: 0px;
+    font-size: 1.25rem;
+}
+.intro-text {
+    font-size: 0.9375rem;
+    letter-spacing: 0.1px;
+    line-height: 140%;
+    @media (min-width: 48rem) {
+        font-size: 0.9375rem;
+        line-height: 140%;
+        letter-spacing: 0px;
+    }
+}
+main {
+    padding-block-start: 3.75rem;
+    padding-block-end: var(--spacing-300);
+    padding-inline: var(--spacing-400);
+    display: flex;
+    flex-direction: column;
+    gap: 3.75rem;
+
+}
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+}
+article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+    padding: var(--spacing-400);
+    border-radius: 0.5rem;
+    border-top: 4px solid;
+    box-shadow: 0px 15px 30px -11px hsla(213, 47%, 67%, 0.5);
+}
+article img {
+    width: 4rem;
+    margin-inline-start: auto;
+}
+section {
+    max-width: 1114px;
+    display: grid;
+    gap: var(--spacing-400);
+    grid-template-areas: 
+    "one"
+    "two"
+    "three"
+    "four"
+    ;
+}
+ @media (min-width: 48rem) {
+     section{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+         grid-template-areas: 
+         ". one one ."
+         "two two three three"
+         ". four four ."
+         ;
+     }
+ }
+ @media (min-width: 75rem) {
+    section {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        ". two ."
+        "one two four"
+        "one three four"
+        ". three ."
+        ;
+    }
+ }
+footer {
+    text-align: center;
+}
+.supervisor {
+    grid-area: one;
+    border-color: var(--category-cyan);
+}
+.team-builder {
+    grid-area: two;
+    border-color: var(--category-red);
+}
+.karma {
+    grid-area: three;
+    border-color: var(--category-orange);
+}
+.calculator {
+    grid-area: four;
+    border-color: var(--category-blue);
+}
